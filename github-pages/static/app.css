@@ -1,0 +1,78 @@
+/* vsc theme color */
+:root {
+	--anakiwa: #9cdcfe; /* vsc dark let, vsc light selection */
+	--asparagus: #6a9955; /* vsc dark comment */
+	--astronaut: #264f78; /* vsc dark selection */
+	--bouquet: #b67bb1; /* vsc dark keyword, vsc dark bracket 2 */
+	--chestnut-rose: #d16969; /* vsc dark regex */
+	--cod-gray: #1e1e1e; /* vsc dark background */
+	--copper-canyon: #7B3814; /* vsc light bracket 3 */
+	--coriander: #b5cea8; /* vsc dark number */
+	--dallas: #795e26; /* vsc light function */
+	--dotger-blue: #179fff; /* vsc dark bracket 3 */
+	--endeavour: #0451a5; /* vsc light css value */
+	--forest-green: #319331;/* vsc light bracket 2 */
+	--gold: #ffd700; /* vsc dark bracket 1 */
+	--havelock-blue: #569cd6; /* vsc dark declare, vsc dark html, vsc dark arrow */
+	--japanese-laurel: #008000; /* vsc light comment */
+	--jelly-bean: #267f99; /* vsc light component, vsc light type */
+	--lochmara: #0070c1; /* vsc light const */
+	--malibu: #4fc1ff; /* vsc dark const */
+	--maroon: #800000; /* vsc light html, vsc light css selector */
+	--navy-blue: #001080; /* vsc light let */
+	--puerto-rico: #4ec9b0; /* vsc dark component, vsc dark type */
+	--raw-sienna: #ce9178; /* vsc dark string, vsc dark css value */
+	--salem: #098658; /* vsc light number */
+	--sapling: #dcdcaa; /* vsc dark function */
+	--straw: #d7ba7d; /* vsc dark css selector */
+	--tamarillo: #a31515; /* vsc light string */
+}
+/* theme */
+:root {
+	--primary: #3b5998; /* chambray */
+	--primary-light: #3178c6; /* mariner */
+}
+/* legacy */
+:root {
+	--alto-55: #dddddd55;
+	--azure-66: #33669966;
+	--black-cc: #000000cc;
+	--catskill-white: #e6eaf2;
+	--chambray: #3b5998; /* primary color */
+	--chambray-22: #3b599822;
+	--chambray-55: #3b599855;
+	--chambray-88: #3b599888;
+	--chambray-aa: #3b5998aa;
+	--electric-violet: #af00db;
+	--firefly: #0a1526;
+	--gray-88: #88888888;
+	--mariner: #3178c6; /* ts primary */
+	--white-dd: #ffffffdd /* dark mode text color */
+}
+@font-face {
+	src: url("./fonts/NotoSans-Medium.woff2") format("woff2");
+	font-family: "Noto Sans";
+	font-display: swap;
+}
+@font-face {
+	src: url("./fonts/NotoSans-Black.woff2") format("woff2");
+	font-weight: bold;
+	font-family: "Noto Sans";
+	font-display: swap;
+}
+@font-face {
+	src: url("./fonts/NotoSans-Medium.subset.woff2") format("woff2");
+	font-family: "Noto Sans.ss";
+	font-display: swap;
+}
+@font-face {
+	src: url("./fonts/NotoSans-Black.subset.woff2") format("woff2");
+	font-weight: bold;
+	font-family: "Noto Sans.ss"2;
+	font-display: swap;
+}
+body {
+	font-family: "Noto Sans.ss", "Noto Sans", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

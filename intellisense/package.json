@@ -1,0 +1,59 @@
+{
+    "activationEvents": ["onLanguage:html", "onLanguage:javascriptreact", "onLanguage:svelte", "onLanguage:typescriptreact", "onLanguage:vue"],
+    "categories": ["Other"],
+    "contributes": {
+        "configuration": [{
+            "id": "intellisense-instant-css",
+            "properties": {
+                "instant-css.custom.shorthandKeys": {
+                    "additionalProperties": false,
+                    "default": [["acc", "accent-color"], ["ac", "align-content"], ["ai", "align-items"], ["as", "align-self"], ["a", "animation"], ["bf", "backdrop-filter"], ["bg", "background"], ["bgc", "background-color"], ["bgi", "background-image"], ["bgo", "background-origin"], ["bgp", "background-position"], ["bgr", "background-repeat"], ["bgs", "background-size"], ["bd", "border"], ["bdb", "border-bottom"], ["bdc", "border-color"], ["bdl", "border-left"], ["br", "border-radius"], ["bdr", "border-right"], ["bds", "border-style"], ["bdt", "border-top"], ["bdw", "border-width"], ["b", "bottom"], ["bs", "box-shadow"], ["c", "color"], ["ct", "content"], ["cs", "cursor"], ["d", "display"], ["f", "fill"], ["ft", "filter"], ["fg", "flex-grow"], ["fsk", "flex-shrink"], ["fl", "float"], ["ff", "font-family"], ["fs", "font-size"], ["fv", "font-variant"], ["fw", "font-weight"], ["g", "gap"], ["gc", "grid-column"], ["gr", "grid-row"], ["gtc", "grid-template-columns"], ["gtr", "grid-template-rows"], ["h", "height"], ["i", "inset"], ["jc", "justify-content"], ["l", "left"], ["lh", "line-height"], ["ls", "list-style"], ["m", "margin"], ["mb", "margin-bottom"], ["ml", "margin-left"], ["mr", "margin-right"], ["mt", "margin-top"], ["xh", "max-height"], ["xw", "max-width"], ["mh", "min-height"], ["mw", "min-width"], ["op", "opacity"], ["ol", "outline"], ["o", "overflow"], ["ocm", "overflow-clip-margin"], ["ow", "overflow-wrap"], ["ox", "overflow-x"], ["oy", "overflow-y"], ["p", "padding"], ["pb", "padding-bottom"], ["pi", "padding-inline"], ["pl", "padding-left"], ["pr", "padding-right"], ["pt", "padding-top"], ["rs", "resize"], ["r", "right"], ["ssa", "scroll-snap-align"], ["sst", "scroll-snap-type"], ["ta", "text-align"], ["td", "text-decoration"], ["ts", "text-shadow"], ["t", "top"], ["tf", "transform"], ["tfo", "transform-origin"], ["tt", "transition"], ["us", "user-select"], ["va", "vertical-align"], ["ws", "white-space"], ["w", "width"], ["wb", "word-break"], ["ww", "word-wrap"], ["wm", "writing-mode"], ["z", "z-index"]],
+                    "description": "Url of instant-css.js",
+                    "type": "array"
+                },
+                "instant-css.custom.shorthandMedias": {
+                    "additionalProperties": false,
+                    "default": [["dark", "(prefers-color-scheme:dark)"], ["sm", "(min-width:640px)"], ["md", "(min-width:768px)"], ["lg", "(min-width:1024px)"], ["xl", "(min-width:1280px)"], ["2xl", "(min-width:1536px)"]],
+                    "description": "Url of instant-css.js",
+                    "type": "array"
+                },
+                "instant-css.custom.shorthandValues": {
+                    "additionalProperties": false,
+                    "default": [["not-allowed", "cursor:not-allowed"], ["pointer", "cursor:pointer"], ["wait", "cursor:wait"], ["block", "display:block"], ["flex", "display:flex"], ["grid", "display:grid"], ["inline", "display:inline"], ["inline-block", "display:inline-block"], ["inline-flex", "display:inline-flex"], ["none", "display:none"], ["column", "flex-direction:column"], ["column-reverse", "flex-direction:column-reverse"], ["row", "flex-direction:row"], ["row-reverse", "flex-direction:row-reverse"], ["bold", "font-weight:bold"], ["absolute", "position:absolute"], ["fixed", "position:fixed"], ["relative", "position:relative"], ["static", "position:static"], ["sticky", "position:sticky"], ["hidden", "visibility:hidden"]],
+                    "description": "Url of instant-css.js",
+                    "type": "array"
+                }
+            },
+            "title": "Intellisense InstantCSS Configuration"
+        }]
+    },
+    "devDependencies": {
+        "@types/node": "^16.11.7",
+        "@types/vscode": "^1.70.0",
+        "@typescript-eslint/eslint-plugin": "^5.42.0",
+        "@typescript-eslint/parser": "^5.42.0",
+        "eslint": "^8.26.0",
+        "typescript": "^5.0.2"
+    },
+    "displayName": "Intellisense InstantCSS",
+    "engines": {
+        "vscode": "^1.70.0"
+    },
+    "icon": "favicon.png",
+    "license": "MIT",
+    "main": "./out/extension.js",
+    "name": "intellisense-instant-css",
+    "private": true,
+    "publisher": "Artxe2",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Artxe2/intellisense-instant-css"
+    },
+    "scripts": {
+        "compile": "tsc -p ./",
+        "lint": "eslint \"src/**/*.ts\"",
+        "vscode:prepublish": "npm run compile",
+        "watch": "tsc -watch -p ./"
+    },
+    "version": "0.0.2"
+}
