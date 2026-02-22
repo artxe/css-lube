@@ -1,0 +1,219 @@
+{
+	"activationEvents": [
+		"onLanguage:html",
+		"onLanguage:javascriptreact",
+		"onLanguage:svelte",
+		"onLanguage:typescriptreact",
+		"onLanguage:vue"
+	],
+	"author": "Artxe",
+	"categories": [ "Other" ],
+	"contributes": {
+		"configuration": [
+			{
+				"id": "intellisense-click-css",
+				"properties": {
+					"click-css.custom.shorthand_for_media_condition": {
+						"additionalProperties": false,
+						"default": [
+							[ "hover", "(hover:hover)" ],
+							[ "sm", "(min-width:640px)" ],
+							[ "md", "(min-width:768px)" ],
+							[ "lg", "(min-width:1024px)" ],
+							[ "xl", "(min-width:1280px)" ],
+							[ "2xl", "(min-width:1536px)" ],
+							[
+								"landscape",
+								"(orientation:landscape)"
+							],
+							[ "fine", "(pointer:fine)" ],
+							[
+								"dark",
+								"(prefers-color-scheme:dark)"
+							],
+							[
+								"reduce",
+								"(prefers-reduced-motion:reduce)"
+							]
+						],
+						"description": "shorthand_for_media_condition of click-css.js",
+						"type": "array"
+					},
+					"click-css.custom.shorthand_for_properties": {
+						"additionalProperties": false,
+						"default": [
+							[ "at", "accent-color" ],
+							[ "ac", "align-content" ],
+							[ "ai", "align-items" ],
+							[ "as", "align-self" ],
+							[ "a", "animation" ],
+							[ "ar", "aspect-ratio" ],
+							[ "bf", "backdrop-filter" ],
+							[ "bg", "background" ],
+							[ "bgc", "background-color" ],
+							[ "bgi", "background-image" ],
+							[ "bd", "border" ],
+							[ "bdb", "border-bottom" ],
+							[
+								"bblr",
+								"border-bottom-left-radius"
+							],
+							[
+								"bbrr",
+								"border-bottom-right-radius"
+							],
+							[ "bdc", "border-color" ],
+							[ "bdi", "border-inline" ],
+							[ "bdl", "border-left" ],
+							[ "br", "border-radius" ],
+							[ "bdr", "border-right" ],
+							[ "bdt", "border-top" ],
+							[ "btlr", "border-top-left-radius" ],
+							[
+								"btrr",
+								"border-top-right-radius"
+							],
+							[ "b", "bottom" ],
+							[ "bsd", "box-shadow" ],
+							[ "bs", "block-size" ],
+							[ "c", "color" ],
+							[ "cq", "container" ],
+							[ "cqn", "container-name" ],
+							[ "cqt", "container-type" ],
+							[ "ct", "content" ],
+							[ "cv", "content-visibility" ],
+							[ "cs", "cursor" ],
+							[ "d", "display" ],
+							[ "f", "flex" ],
+							[ "ft", "filter" ],
+							[ "fg", "flex-grow" ],
+							[ "fsk", "flex-shrink" ],
+							[ "ff", "font-family" ],
+							[ "fs", "font-size" ],
+							[ "fw", "font-weight" ],
+							[ "g", "gap" ],
+							[ "gc", "grid-column" ],
+							[ "gr", "grid-row" ],
+							[ "gtc", "grid-template-columns" ],
+							[ "gtr", "grid-template-rows" ],
+							[ "h", "height" ],
+							[ "is", "inline-size" ],
+							[ "i", "inset" ],
+							[ "jc", "justify-content" ],
+							[ "ji", "justify-items" ],
+							[ "l", "left" ],
+							[ "ls", "letter-spacing" ],
+							[ "lh", "line-height" ],
+							[ "m", "margin" ],
+							[ "mb", "margin-bottom" ],
+							[ "mi", "margin-inline" ],
+							[ "ml", "margin-left" ],
+							[ "mr", "margin-right" ],
+							[ "mt", "margin-top" ],
+							[ "of", "object-fit" ],
+							[ "op", "opacity" ],
+							[ "ol", "outline" ],
+							[ "o", "overflow" ],
+							[ "ox", "overflow-x" ],
+							[ "oy", "overflow-y" ],
+							[ "p", "padding" ],
+							[ "pb", "padding-bottom" ],
+							[ "pi", "padding-inline" ],
+							[ "pl", "padding-left" ],
+							[ "pr", "padding-right" ],
+							[ "pt", "padding-top" ],
+							[ "pc", "place-content" ],
+							[ "pci", "place-items" ],
+							[ "pe", "pointer-events" ],
+							[ "r", "right" ],
+							[ "ta", "text-align" ],
+							[ "td", "text-decoration" ],
+							[ "ts", "text-shadow" ],
+							[ "tw", "text-wrap" ],
+							[ "t", "top" ],
+							[ "tf", "transform" ],
+							[ "tt", "transition" ],
+							[ "us", "user-select" ],
+							[ "v", "visibility" ],
+							[ "ws", "white-space" ],
+							[ "w", "width" ],
+							[ "wb", "word-break" ],
+							[ "z", "z-index" ]
+						],
+						"description": "shorthand_for_properties of click-css.js",
+						"type": "array"
+					},
+					"click-css.custom.shorthand_for_values": {
+						"additionalProperties": false,
+						"default": [
+							[ "block", "display:block" ],
+							[ "flex", "display:flex" ],
+							[ "grid", "display:grid" ],
+							[ "inline", "display:inline" ],
+							[ "none", "display:none" ],
+							[
+								"column",
+								"flex-direction:column"
+							],
+							[
+								"column-reverse",
+								"flex-direction:column-reverse"
+							],
+							[ "row", "flex-direction:row" ],
+							[
+								"row-reverse",
+								"flex-direction:row-reverse"
+							],
+							[ "nowrap", "flex-wrap:nowrap" ],
+							[ "wrap", "flex-wrap:wrap" ],
+							[ "isolate", "isolation:isolate" ],
+							[ "absolute", "position:absolute" ],
+							[ "fixed", "position:fixed" ],
+							[ "relative", "position:relative" ],
+							[ "static", "position:static" ],
+							[ "sticky", "position:sticky" ]
+						],
+						"description": "shorthand_for_values of click-css.js",
+						"type": "array"
+					}
+				},
+				"title": "Intellisense Click CSS Configuration"
+			}
+		]
+	},
+	"dependencies": { "dom-eater": "^0.2.5" },
+	"devDependencies": {
+		"@eslint/json": "^1.0.1",
+		"@rollup/plugin-commonjs": "^29.0.0",
+		"@rollup/plugin-node-resolve": "^16.0.3",
+		"@types/node": "^25.3.0",
+		"@types/vscode": "^1.45.0",
+		"@vscode/vsce": "^3.7.1",
+		"eslint": "^10.0.1",
+		"eslint-plugin-lube": "^0.5.1",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.56.0"
+	},
+	"displayName": "Intellisense Click CSS",
+	"engines": { "vscode": "^1.45.0" },
+	"files": [ "favicon.png", "out/**" ],
+	"icon": "favicon.png",
+	"license": "MIT",
+	"main": "out/index.cjs",
+	"name": "intellisense-click-css",
+	"private": true,
+	"publisher": "Artxe",
+	"repository": {
+		"directory": "packages/vsce",
+		"type": "git",
+		"url": "https://github.com/Artxe/click-css"
+	},
+	"scripts": {
+		"build": "pnpm rollup -c && vsce package --no-dependencies",
+		"lint": "tsc && eslint --cache --fix **/*.{js,json,ts}",
+		"pub": "pnpm rollup -c && vsce publish --no-dependencies",
+		"watch": "pnpm rollup -c --watch"
+	},
+	"type": "commonjs",
+	"version": "1.0.0"
+}

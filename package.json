@@ -1,0 +1,15 @@
+{
+	"author": "Artxe",
+	"description": "Inline-authored CSS DSL",
+	"license": "MIT",
+	"name": "click-css",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Artxe/click-css.git"
+	},
+	"scripts": {
+		"latest": "pnpm -r up --latest && cd packages/vsce && pnpm i @types/vscode@^1.45.0 && pnpm lint",
+		"lint": "pnpm -r lint"
+	},
+	"version": "1.0.0"
+}

@@ -1,0 +1,22 @@
+{
+	"author": "Artxe",
+	"description": "Inline-authored CSS DSL",
+	"devDependencies": {
+		"@eslint/json": "^1.0.1",
+		"eslint": "^10.0.1",
+		"eslint-plugin-lube": "^0.5.1",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.56.0"
+	},
+	"license": "MIT",
+	"main": "click-css.js",
+	"name": "click-css",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Artxe/click-css.git"
+	},
+	"scripts": {
+		"lint": "tsc && eslint --cache --fix **/*.{js,json,ts}"
+	},
+	"version": "1.0.0"
+}
