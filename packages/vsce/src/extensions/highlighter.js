@@ -156,7 +156,8 @@ module.exports = context => {
 					}
 				}
 				if (check_is_special(cname, parse_index)) {
-					const index = cname.indexOf("/", parse_index + 1)
+					const offset = compile_style.get_selector_end(cname.slice(parse_index))
+					const index = offset < 0 ? -1 : parse_index + offset
 					if (index >= 0) {
 						const selector_start = active_editor.document.positionAt(cname_index + parse_index)
 						const selector_end = active_editor.document.positionAt(cname_index + index + 1)
@@ -171,7 +172,7 @@ module.exports = context => {
 				let index = cname.indexOf("=", parse_index)
 				if (index >= 0) {
 					do {
-						index_array.push(index)
+						if (cname[index - 1] != "\\") index_array.push(index)
 						index = cname.indexOf("=", index + 1)
 					} while (index >= 0)
 				}

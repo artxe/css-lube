@@ -1,5 +1,4 @@
 {
-	"exclude": [ "min.js" ],
 	"compilerOptions": {
 		"allowJs": true,
 		"allowSyntheticDefaultImports": true,

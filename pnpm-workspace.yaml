@@ -1,3 +1,5 @@
 packages:
-  - 'github-pages'
   - 'packages/*'
+allowBuilds:
+  '@vscode/vsce-sign': false
+  keytar: false

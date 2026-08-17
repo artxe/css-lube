@@ -1,3 +1,4 @@
-/docs
-/node_modules
-**/.eslintcache
+node_modules
+.eslintcache
+/packages/vsce/out
+*.vsix

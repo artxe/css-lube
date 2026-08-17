@@ -1,15 +1,3 @@
-/* terser options
-{
-	module: true,
-	compress: {
-		booleans_as_integers: true
-	},
-	mangle: {},
-	output: {},
-	parse: {},
-	rename: {},
-}
-*/
 {
 	let dom = document
 	let escape = CSS.escape
@@ -29,7 +17,6 @@
 		+ ":root{-webkit-tap-highlight-color:transparent;text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:1.5;overflow-wrap:break-word;word-break:break-word;tab-size:4}"
 	let shorthand_for_properties = new M(
 		[
-			[ "at", "accent-color" ],
 			[ "ac", "align-content" ],
 			[ "ai", "align-items" ],
 			[ "as", "align-self" ],
@@ -39,31 +26,30 @@
 			[ "bg", "background" ],
 			[ "bgc", "background-color" ],
 			[ "bgi", "background-image" ],
+			[ "bs", "block-size" ],
 			[ "bd", "border" ],
 			[ "bdb", "border-bottom" ],
-			[ "bblr", "border-bottom-left-radius" ],
-			[ "bbrr", "border-bottom-right-radius" ],
+			[ "brbl", "border-bottom-left-radius" ],
+			[ "brbr", "border-bottom-right-radius" ],
 			[ "bdc", "border-color" ],
 			[ "bdi", "border-inline" ],
 			[ "bdl", "border-left" ],
 			[ "br", "border-radius" ],
 			[ "bdr", "border-right" ],
 			[ "bdt", "border-top" ],
-			[ "btlr", "border-top-left-radius" ],
-			[ "btrr", "border-top-right-radius" ],
+			[ "brtl", "border-top-left-radius" ],
+			[ "brtr", "border-top-right-radius" ],
 			[ "b", "bottom" ],
 			[ "bsd", "box-shadow" ],
-			[ "bs", "block-size" ],
 			[ "c", "color" ],
 			[ "cq", "container" ],
 			[ "cqn", "container-name" ],
 			[ "cqt", "container-type" ],
 			[ "ct", "content" ],
-			[ "cv", "content-visibility" ],
 			[ "cs", "cursor" ],
 			[ "d", "display" ],
-			[ "f", "flex" ],
 			[ "ft", "filter" ],
+			[ "f", "flex" ],
 			[ "fg", "flex-grow" ],
 			[ "fsk", "flex-shrink" ],
 			[ "ff", "font-family" ],
@@ -78,16 +64,20 @@
 			[ "is", "inline-size" ],
 			[ "i", "inset" ],
 			[ "jc", "justify-content" ],
-			[ "ji", "justify-items" ],
 			[ "l", "left" ],
 			[ "ls", "letter-spacing" ],
 			[ "lh", "line-height" ],
 			[ "m", "margin" ],
+			[ "my", "margin-block" ],
 			[ "mb", "margin-bottom" ],
-			[ "mi", "margin-inline" ],
+			[ "mx", "margin-inline" ],
 			[ "ml", "margin-left" ],
 			[ "mr", "margin-right" ],
 			[ "mt", "margin-top" ],
+			[ "mah", "max-height" ],
+			[ "maw", "max-width" ],
+			[ "mih", "min-height" ],
+			[ "miw", "min-width" ],
 			[ "of", "object-fit" ],
 			[ "op", "opacity" ],
 			[ "ol", "outline" ],
@@ -95,24 +85,24 @@
 			[ "ox", "overflow-x" ],
 			[ "oy", "overflow-y" ],
 			[ "p", "padding" ],
+			[ "py", "padding-block" ],
 			[ "pb", "padding-bottom" ],
-			[ "pi", "padding-inline" ],
+			[ "px", "padding-inline" ],
 			[ "pl", "padding-left" ],
 			[ "pr", "padding-right" ],
 			[ "pt", "padding-top" ],
-			[ "pc", "place-content" ],
 			[ "pci", "place-items" ],
 			[ "pe", "pointer-events" ],
 			[ "r", "right" ],
 			[ "ta", "text-align" ],
 			[ "td", "text-decoration" ],
 			[ "ts", "text-shadow" ],
+			[ "tt", "text-transform" ],
 			[ "tw", "text-wrap" ],
 			[ "t", "top" ],
 			[ "tf", "transform" ],
-			[ "tt", "transition" ],
+			[ "tr", "transition" ],
 			[ "us", "user-select" ],
-			[ "v", "visibility" ],
 			[ "ws", "white-space" ],
 			[ "w", "width" ],
 			[ "wb", "word-break" ],
@@ -154,8 +144,8 @@
 			[ "reduce", "(prefers-reduced-motion:reduce)" ]
 		]
 	)
-	let replace_default_unit_inner_regex = /(?:^| )-?(?:\d*\.)?\d+(?= |$)/g
-	let replace_default_unit_regex = /((?:^|;|-)(?:border|bottom|end|font-size|gap|grid-template-(?:columns|rows)|height|inset|left|(?:margin|padding)(?:-[a-z]+)*|outline|radius|right|shadow|spacing|start|top|width):)(.+?)(?=;|$)/g
+	let replace_default_unit_inner_regex = /\([^)]*\)|(?:^| )-?(?:\d*\.)?\d+(?= |$)/g
+	let replace_default_unit_regex = /((?:^|;|-)(?:block|border|bottom|gap|grid-template-(?:columns|rows)|(?<!line-)height|inline|inset(?:-[a-z]+)*|left|(?:margin|padding)(?:-[a-z]+)*|outline|radius|right|shadow|size|spacing|top|(?<!stroke-)width):)(.+?)(?=;|$)/g
 	let default_unit = "px"
 
 
@@ -187,30 +177,39 @@
 	 * /prefers-color-scheme:dark/g
 	 * ``` */
 	let dark_theme_regex = /prefers-color-scheme:dark/g
+	/**
+	 * ```
+	 * /&amp;/g
+	 * ``` */
+	let decode_ampersand_regex = /&amp;/g
+	/** ```
+	 * /&gt;/g
+	 * ``` */
+	let decode_greater_than_regex = /&gt;/g
+	/** ```
+	 * /&lt;/g
+	 * ``` */
+	let decode_less_than_regex = /&lt;/g
+	/** ```
+	 * /&nbsp;/g
+	 * ``` */
+	let decode_no_break_space_regex = /&nbsp;/g
+	/** ```
+	 * /&quot;/g
+	 * ``` */
+	let decode_quote_regex = /&quot;/g
 	/** ```
 	 * /&/g
 	 * ``` */
 	let replace_and_regex = /&/g
 	/** ```
-	 * /=/g
+	 * /\\?=/g
 	 * ``` */
-	let replace_colon_regex = /=/g
+	let replace_colon_regex = /\\?=/g
 	/** ```
-	 * /[^ ][+-][^ ]/g
+	 * /[^ ,]+(?<![<>=])=[^ ,]+/g
 	 * ``` */
-	let replace_calc_oper_inner_regex = /[^ (][+-][^ ]/g
-	/** ```
-	 * /calc\(.+?\)/g
-	 * ``` */
-	let replace_calc_oper_regex = /calc\(.+?\)/g
-	/** ```
-	 * /[^ ,]+=[^ ,]+/g
-	 * ``` */
-	let replace_condition_regex = /[^ ,]+=[^ ,]+/g
-	/** ```
-	 * /&gt;/g
-	 * ``` */
-	let replace_greater_than_regex = /&gt;/g
+	let replace_condition_regex = /[^ ,]+(?<![<>=])=[^ ,]+/g
 	/**
 	 * @type {RegExp}
 	 * ```
@@ -226,35 +225,26 @@
 	/**
 	 * @type {RegExp}
 	 * ```
-	 * /(^|/|;)(at|ac|ai... ...|z)(?=:)/g
+	 * /(^|/|;)(?:(at|ac|ai... ...|z)(?=:)|(block|flex... ...|sticky)(?=;|!|$))/g
 	 * ```
 	 */
-	let replace_properties_regex = RE(
-		"(^|/|;)("
+	let replace_shorthand_regex = RE(
+		"(^|/|;)(?:("
 		+ [ ...shorthand_for_properties.keys() ].join("|")
-		+ ")(?=:)",
-		"g"
-	)
-	/** ```
-	 * /_/g
-	 * ``` */
-	let replace_space_regex = /_/g
-	/** ```
-	 * /[: ,]--[^ ;,)]+/g
-	 * ``` */
-	let replace_var_regex = /[: ,]--[^ ;,)]+/g
-	/**
-	 * @type {RegExp}
-	 * ```
-	 * /(^|/|;)(block|flex|grid... ...|sticky)(?=;|!|$)/g
-	 * ```
-	 */
-	let replace_value_regex = RE(
-		"(^|/|;)("
+		+ ")(?=:)|("
 		+ [ ...shorthand_for_values.keys() ].join("|")
-		+ ")(?=;|!|$)",
+		+ ")(?=;|!|$))",
 		"g"
 	)
+	/** ```
+	 * /\\?_/g
+	 * ``` */
+	let replace_space_regex = /\\?_/g
+	/**
+	 * ```
+	 * /\([^)]*\)|[: ,]--[^ ;,)]+/g
+	 * ``` */
+	let replace_var_regex = /\([^)]*\)|[: ,]--[^ ;,)]+|(?<=[: ,])~(?=[-.\d])/g
 	/**
 	 * build_style_sheet
 	 * @returns {void}
@@ -289,19 +279,20 @@
 	}
 	/**
 	 * @param {string} cname
-	 * @returns {number | boolean}
+	 * @returns {string | number | boolean}
 	 */
 	let check_is_open = cname => {
-		let quote = 0
-		let db_quote = 0
-		let paren = 0
-		for (let c of cname) {
-			if (c == "'") quote++
-			else if (c == "\"") db_quote++
-			else if (c == "(") paren++
-			else if (c == ")") paren--
+		let quote = ""
+		let depth = 0
+		for (let i = 0; i < cname.length; i++) {
+			let c = cname[i]
+			if (c == "\\") i++
+			else if (quote) quote = c == quote ? "" : quote
+			else if (c == "'" || c == "\"") quote = c
+			else if (c == "(" || c == "[") depth++
+			else if (c == ")" || c == "]") depth--
 		}
-		return quote % 2 || db_quote % 2 || paren || cname[cname.length - 1] == "\\"
+		return quote || depth || cname[cname.length - 1] == "\\"
 	}
 	/**
 	 * @param {string} cname
@@ -324,10 +315,9 @@
 	 * @returns {string}
 	 */
 	let compile_special = cname => {
-        cname = cname.replace(replace_greater_than_regex, ">")
-		let i = cname.indexOf("/")
-		return escape(cname) + cname.slice(0, i)
-			.replace(replace_space_regex, " ") + "{" + parse_value(cname.slice(i + 1)) + "}"
+		let i = get_selector_end(cname)
+		return escape(cname) + (i < 0 ? "" : cname.slice(0, i).replace(replace_space_regex, replace_space_handler))
+			+ "{" + parse_value(cname.slice(i + 1)) + "}"
 	}
 	/**
 	 * @param {string} cname
@@ -356,6 +346,13 @@
 		for (let [ , substr ] of target.outerHTML.matchAll(get_class_name_regex)) {
 			class_name += " " + substr
 		}
+		if (class_name.includes("&")) {
+			class_name = class_name.replace(decode_less_than_regex, "<")
+				.replace(decode_greater_than_regex, ">")
+				.replace(decode_quote_regex, "\"")
+				.replace(decode_no_break_space_regex, "\xa0")
+				.replace(decode_ampersand_regex, "&")
+		}
 		class_name.match(get_cname_regex)?.forEach(get_cname_handler)
 	}
 	/**
@@ -380,6 +377,24 @@
 		return prefix
 	}
 	/**
+	 * @param {string} cname
+	 * @returns {number}
+	 */
+	let get_selector_end = cname => {
+		let quote = ""
+		let depth = 0
+		for (let i = 0; i < cname.length; i++) {
+			let c = cname[i]
+			if (c == "\\") i++
+			else if (quote) quote = c == quote ? "" : quote
+			else if (c == "'" || c == "\"") quote = c
+			else if (c == "(" || c == "[") depth++
+			else if (c == ")" || c == "]") depth--
+			else if (c == "/" && !depth) return i
+		}
+		return -1
+	}
+	/**
 	 * @param {string} substr
 	 * @returns {string}
 	 */
@@ -396,7 +411,7 @@
 		query = char == "@"
 			? query.slice(1)
 			: "media " + query
-		return "@" + query.replace(replace_space_regex, " ")
+		return "@" + query.replace(replace_space_regex, replace_space_handler)
 			.replace(replace_and_regex, " and ")
 			.replace(replace_condition_regex, parse_condition)
 			.replace(replace_media_condition_regex, replace_media_handler) + "{"
@@ -411,30 +426,20 @@
 			while (cname[--i] == "!");
 			cname = cname.slice(0, i + 1)
 		}
-		return cname.replace(replace_space_regex, " ")
-			.replace(replace_colon_regex, ":")
-			.replace(replace_properties_regex, replace_property_handler)
-			.replace(replace_value_regex, replace_value_handler)
+		return cname.replace(replace_space_regex, replace_space_handler)
+			.replace(replace_colon_regex, replace_colon_handler)
+			.replace(replace_shorthand_regex, replace_shorthand_handler)
 			.replace(
 				replace_default_unit_regex,
 				replace_shorthand_unit_handler
 			)
-			.replace(replace_calc_oper_regex, replace_calc_oper_handler)
 			.replace(replace_var_regex, replace_var_handler)
 	}
 	/**
 	 * @param {string} substr
 	 * @returns {string}
 	 */
-	let replace_calc_oper_handler = substr => substr.replace(
-		replace_calc_oper_inner_regex,
-		replace_calc_oper_inner_handler
-	)
-	/**
-	 * @param {string} substr
-	 * @returns {string}
-	 */
-	let replace_calc_oper_inner_handler = substr => substr[0] + " " + substr[1] + " " + substr[2]
+	let replace_colon_handler = substr => substr.length > 1 ? "=" : ":"
 	/**
 	 * @param {string} _
 	 * @param {string} lookbehind
@@ -445,40 +450,43 @@
 	/**
 	 * @param {string} _
 	 * @param {string} lookbehind
-	 * @param {string} substr
+	 * @param {string} property
+	 * @param {string} value
 	 * @returns {string}
 	 */
-	let replace_property_handler = (_, lookbehind, substr) => lookbehind + shorthand_for_properties.get(substr)
+	let replace_shorthand_handler = (_, lookbehind, property, value) => lookbehind + (property ? shorthand_for_properties.get(property) : shorthand_for_values.get(value))
 	/**
 	 * @param {string} _
 	 * @param {string} lookbehind
 	 * @param {string} substr
 	 * @returns {string}
 	 */
-	let replace_shorthand_unit_handler = (_, lookbehind, substr) => lookbehind + substr.replace(
-		replace_default_unit_inner_regex,
-		replace_shorthand_unit_inner_handler
-	)
+	let replace_shorthand_unit_handler = (_, lookbehind, substr) => lookbehind + (substr[0] == "~"
+		? substr.slice(1)
+		: substr.replace(
+			replace_default_unit_inner_regex,
+			replace_shorthand_unit_inner_handler
+		))
 	/**
 	 * @param {string} substr
 	 * @returns {string}
 	 */
-	let replace_shorthand_unit_inner_handler = substr => substr + default_unit
-	/**
-	 * @param {string} _
-	 * @param {string} lookbehind
-	 * @param {string} substr
-	 * @returns {string}
-	 */
-	let replace_value_handler = (_, lookbehind, substr) => lookbehind + shorthand_for_values.get(substr)
+	let replace_shorthand_unit_inner_handler = substr => substr[0] == "(" ? substr : substr + default_unit
 	/**
 	 * @param {string} substr
 	 * @returns {string}
 	 */
-	let replace_var_handler = substr => substr[0] + "var(" + substr.slice(1) + ")"
+	let replace_space_handler = substr => substr.length > 1 ? "_" : " "
+	/**
+	 * @param {string} substr
+	 * @returns {string}
+	 */
+	let replace_var_handler = substr => substr[0] == "("
+		? substr
+		: substr[0] == "~" ? "" : substr[0] + "var(" + substr.slice(1) + ")"
 
 
-	style_sheet.setAttribute("click", "v1.0.0")
+	style_sheet.setAttribute("click", "v1.1.0")
 	dom.head.append(style_sheet)
 	new MO(
 		mr_list => {
