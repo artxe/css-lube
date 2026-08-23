@@ -1,16 +1,16 @@
 const EXAMPLES = Object.freeze({
-	profile: `<main class="min-height=100% flex ai=center jc=center p=32 bg=#eef1f8 ff=Inter,ui-sans-serif,system-ui,sans-serif @max-width=460px@p=18 @dark@bg=#0f1015">
-	<article class="w=380 max-width=100% bg=white br=28 p=30 c=#181922 bsd=0_24px_70px_rgba(34,38,67,.16) tr=transform_.2s_ease,box-shadow_.2s_ease :hover/tf=translateY(-4px);bsd=0_30px_80px_rgba(34,38,67,.2) @dark@bg=#171821;c=#f7f7fb">
+	profile: `<main class="mih=100% flex ai=center jc=center p=32 bg=#eef1f8 ff=Inter,ui-sans-serif,system-ui,sans-serif @max-width=460px@p=18 @dark@bg=#0f1015">
+	<article class="w=380 maw=100% bg=white br=28 p=30 c=#181922 bsd=0_24_70_rgba(34,38,67,.16) tr=transform_.2s_ease,box-shadow_.2s_ease :hover/tf=translateY(-4px);bsd=0_30_80_rgba(34,38,67,.2) @dark@bg=#171821;c=#f7f7fb">
 		<header class="flex ai=center g=16">
-			<div class="w=64 h=64 br=20 flex ai=center jc=center bg=linear-gradient(135deg,#7c6cff,#b56cff) c=white fs=21 fw=800 bsd=0_10px_28px_rgba(124,108,255,.34)">CC</div>
+			<div class="w=64 h=64 br=20 flex ai=center jc=center bg=linear-gradient(135deg,#7c6cff,#b56cff) c=white fs=21 fw=800 bsd=0_10_28_rgba(124,108,255,.34)">CC</div>
 			<div class="fg=1">
-				<p class="mb=4 c=#7c6cff fs=12 fw=750 ls=.08em text-transform=uppercase">Creator spotlight</p>
-				<h1 class="fs=22 fw=760 ls=-.025em">Mina Park</h1>
+				<p class="mb=4 c=#7c6cff fs=12 fw=700 ls=.08em tt=uppercase">Creator spotlight</p>
+				<h1 class="fs=22 fw=800 ls=-.025em">Mina Park</h1>
 				<p class="mt=3 c=#747785 fs=14 @dark@c=#a8a9b3">Interface designer · Seoul</p>
 			</div>
 		</header>
 
-		<p class="mt=24 lh=1.7em c=#565966 fs=14 @dark@c=#c0c1ca">Building playful interfaces with less ceremony and more character.</p>
+		<p class="mt=24 lh=1.7 c=#565966 fs=14 @dark@c=#c0c1ca">Building playful interfaces with less ceremony and more character.</p>
 
 		<div class="flex g=9 mt=24">
 			<a class="fg=1 ta=center p=11 br=12 bg=#7c6cff c=white fs=13 fw=700 tr=transform_.18s_ease,background_.18s_ease :hover/bg=#6959ee;tf=translateY(-1px)" href="#follow">Follow</a>
@@ -19,69 +19,143 @@ const EXAMPLES = Object.freeze({
 	</article>
 </main>`,
 
-	responsive: `<main class="min-height=100% p=40 bg=#f6f7fb ff=Inter,ui-sans-serif,system-ui,sans-serif @max-width=560px@p=18">
-	<div class="max-width=980px m=0_auto">
+	responsive: `<main class="mih=100% p=40 bg=#f6f7fb ff=Inter,ui-sans-serif,system-ui,sans-serif @max-width=560px@p=18 @dark@bg=#0f1015">
+	<div class="maw=980 m=0_auto">
 		<header class="mb=26">
-			<p class="mb=7 c=#7064e9 fs=12 fw=800 ls=.1em text-transform=uppercase">Responsive by class</p>
-			<h1 class="c=#181922 fs=32 fw=780 ls=-.04em @max-width=560px@fs=25">One source, every viewport.</h1>
+			<p class="mb=7 c=#7064e9 fs=12 fw=800 ls=.1em tt=uppercase">Responsive by class</p>
+			<h1 class="c=#181922 fs=32 fw=800 ls=-.04em @max-width=560px@fs=25 @dark@c=#f7f7fb">One source, every viewport.</h1>
+			<p class="mt=8 c=#747784 fs=14 lh=1.65 @dark@c=#a8a9b3">One column, two from 640px, three from 768px. Drag the divider: the grid follows the preview width.</p>
 		</header>
 
-		<section class="grid g=16 gtc=repeat(1,1fr) @sm@gtc=repeat(3,1fr)">
-			<article class="p=22 bg=white br=18 bd=1px_solid_#e8e9f0 tr=transform_.2s_ease,border-color_.2s_ease :hover/tf=translateY(-3px);bdc=#b9b1ff">
+		<section class="grid g=16 gtc=1fr @sm@gtc=repeat(2,1fr) @md@gtc=repeat(3,1fr)">
+			<article class="p=22 bg=white br=18 bd=1_solid_#e8e9f0 tr=transform_.2s_ease,border-color_.2s_ease :hover/tf=translateY(-3px);bdc=#b9b1ff @dark@bg=#171821;bdc=#2a2b36">
 				<span class="flex ai=center jc=center w=38 h=38 mb=28 br=11 bg=#edeaff c=#6c5ce7 fs=17 fw=800">01</span>
-				<h2 class="mb=8 c=#20212a fs=17 fw=740">No build step</h2>
-				<p class="c=#747784 fs=13 lh=1.65em">Write the CSS you already know directly in class names.</p>
+				<h2 class="mb=8 c=#20212a fs=17 fw=700 @dark@c=#f1f1f4">No build step</h2>
+				<p class="c=#747784 fs=13 lh=1.65 @dark@c=#a8a9b3">Write the CSS you already know directly in class names.</p>
 			</article>
 
-			<article class="p=22 bg=white br=18 bd=1px_solid_#e8e9f0 tr=transform_.2s_ease,border-color_.2s_ease :hover/tf=translateY(-3px);bdc=#9edec4">
+			<article class="p=22 bg=white br=18 bd=1_solid_#e8e9f0 tr=transform_.2s_ease,border-color_.2s_ease :hover/tf=translateY(-3px);bdc=#9edec4 @dark@bg=#171821;bdc=#2a2b36">
 				<span class="flex ai=center jc=center w=38 h=38 mb=28 br=11 bg=#e5f8f0 c=#26956a fs=17 fw=800">02</span>
-				<h2 class="mb=8 c=#20212a fs=17 fw=740">Tiny runtime</h2>
-				<p class="c=#747784 fs=13 lh=1.65em">Classes are discovered and compiled while your DOM changes.</p>
+				<h2 class="mb=8 c=#20212a fs=17 fw=700 @dark@c=#f1f1f4">Tiny runtime</h2>
+				<p class="c=#747784 fs=13 lh=1.65 @dark@c=#a8a9b3">Classes are discovered and compiled while your DOM changes.</p>
 			</article>
 
-			<article class="p=22 bg=white br=18 bd=1px_solid_#e8e9f0 tr=transform_.2s_ease,border-color_.2s_ease :hover/tf=translateY(-3px);bdc=#ffc2a7">
+			<article class="p=22 bg=white br=18 bd=1_solid_#e8e9f0 tr=transform_.2s_ease,border-color_.2s_ease :hover/tf=translateY(-3px);bdc=#ffc2a7 @dark@bg=#171821;bdc=#2a2b36">
 				<span class="flex ai=center jc=center w=38 h=38 mb=28 br=11 bg=#fff0e9 c=#d66c3c fs=17 fw=800">03</span>
-				<h2 class="mb=8 c=#20212a fs=17 fw=740">Native syntax</h2>
-				<p class="c=#747784 fs=13 lh=1.65em">Selectors, media queries, variables and calc are all at hand.</p>
+				<h2 class="mb=8 c=#20212a fs=17 fw=700 @dark@c=#f1f1f4">Native syntax</h2>
+				<p class="c=#747784 fs=13 lh=1.65 @dark@c=#a8a9b3">Selectors, media queries, variables and calc are all at hand.</p>
 			</article>
 		</section>
 	</div>
 </main>`,
 
-	selectors: `<main class="min-height=100% flex ai=center jc=center p=28 bg=#15151b ff=Inter,ui-sans-serif,system-ui,sans-serif">
-	<section class="w=520 max-width=100% p=32 br=24 bg=#1e1f27 bd=1px_solid_#30313d c=#f5f5f7">
-		<p class="mb=8 c=#9c93ff fs=12 fw=800 ls=.1em text-transform=uppercase">Selector playground</p>
-		<h1 class="mb=12 fs=28 fw=760 ls=-.035em">Hover the rows.</h1>
-		<p class="mb=28 c=#9fa1ad fs=14 lh=1.65em">Everything below is styled from its class attribute.</p>
+	selectors: `<main class="mih=100% flex ai=center jc=center p=28 bg=#15151b ff=Inter,ui-sans-serif,system-ui,sans-serif">
+	<section class="w=560 maw=100% p=32 br=24 bg=#1e1f27 bd=1_solid_#30313d c=#f5f5f7
+		_code/ff=ui-monospace,Menlo,Consolas,monospace;fs=11;c=#9fa1ad">
+		<p class="mb=8 c=#9c93ff fs=12 fw=800 ls=.1em tt=uppercase">Selector playground</p>
+		<h1 class="mb=12 fs=28 fw=800 ls=-.035em">Hover the rows.</h1>
+		<p class="mb=28 c=#9fa1ad fs=14 lh=1.65">Everything below is styled from its class attribute. Each row names the tokens doing the work.</p>
 
 		<div class="grid g=10">
-			<a class="flex ai=center g=12 p=14_16 br=13 bg=#272832 c=#f5f5f7 tr=background_.18s_ease,transform_.18s_ease :hover/bg=#302e48;tf=translateX(4px) >span:last-child/ml=auto;c=#8f88e8;tr=transform_.18s_ease :hover>span:last-child/tf=translateX(3px)" href="#selectors">
+			<a class="flex ai=center g=12 p=14_16 br=13 bg=#272832 c=#f5f5f7 tr=background_.18s_ease,transform_.18s_ease
+				:hover/bg=#302e48;tf=translateX(4px)
+				>span:last-child/ml=auto;c=#8f88e8;tr=transform_.18s_ease
+				:hover>span:last-child/tf=translateX(3px)" href="#selectors">
 				<span class="flex ai=center jc=center w=34 h=34 br=10 bg=#3b3760 c=#c9c4ff fw=800">S</span>
-				<strong class="fs=14">Scoped selectors</strong>
+				<span class="miw=0 fsk=1">
+					<strong class="d=block fs=14">Scoped selectors</strong>
+					<code>:hover/ >span:last-child/ :hover>span:last-child/ _code/</code>
+				</span>
 				<span>→</span>
 			</a>
 
-			<a class="flex ai=center g=12 p=14_16 br=13 bg=#272832 c=#f5f5f7 tr=background_.18s_ease,transform_.18s_ease :hover/bg=#293d38;tf=translateX(4px) >span:last-child/ml=auto;c=#72c9a9;tr=transform_.18s_ease :hover>span:last-child/tf=translateX(3px)" href="#media">
+			<a class="flex ai=center g=12 p=14_16 br=13 bg=#272832 c=#f5f5f7 tr=background_.18s_ease,transform_.18s_ease
+				@hover@:hover/bg=#293d38;tf=translateX(4px)" href="#media">
 				<span class="flex ai=center jc=center w=34 h=34 br=10 bg=#29463d c=#91dfc2 fw=800">@</span>
-				<strong class="fs=14">Media conditions</strong>
-				<span>→</span>
+				<span class="miw=0 fsk=1">
+					<strong class="d=block fs=14">Media conditions</strong>
+					<code>@hover@:hover/ · @sm@none · none @sm@d=inline</code>
+				</span>
+				<span class="ml=auto p=3_9 br=999 bg=#29463d c=#91dfc2 fs=11 fw=700 ws=nowrap"><span class="@sm@none">under 640px</span><span class="none @sm@d=inline">640px and up</span></span>
 			</a>
 
-			<a class="flex ai=center g=12 p=14_16 br=13 bg=#272832 c=#f5f5f7 tr=background_.18s_ease,transform_.18s_ease :hover/bg=#46342d;tf=translateX(4px) >span:last-child/ml=auto;c=#e6a083;tr=transform_.18s_ease :hover>span:last-child/tf=translateX(3px)" href="#priority">
-				<span class="flex ai=center jc=center w=34 h=34 br=10 bg=#533b31 c=#ffc0a5 fw=800">!</span>
-				<strong class="fs=14">Stackable priority</strong>
+			<a class="flex ai=center g=12 p=14_16 br=13 bg=#272832 c=#f5f5f7 tr=background_.18s_ease,transform_.18s_ease
+				:hover/bg=#46342d;tf=translateX(4px)
+				>span:last-child/ml=auto;c=#e6a083;tr=transform_.18s_ease
+				:hover>span:last-child/tf=translateX(3px)" href="#priority">
+				<span class="flex ai=center jc=center w=34 h=34 br=10 bg=#533b31!! bg=red! c=#ffc0a5 fw=800">!</span>
+				<span class="miw=0 fsk=1">
+					<strong class="d=block fs=14">Stackable priority</strong>
+					<code>bg=#533b31!! bg=red! · two ! beat one, so red never shows</code>
+				</span>
 				<span>→</span>
 			</a>
 		</div>
 	</section>
+</main>`,
+
+	grammar: `<main class="mih=100% p=32 bg=#f6f7fb c=#181922 ff=Inter,ui-sans-serif,system-ui,sans-serif
+	_dl/grid;gtc=max-content_minmax(0,1fr);g=14_22;ai=center;mt=26
+	_dt/ff=ui-monospace,Menlo,Consolas,monospace;fs=12;c=#6154d8;ws=nowrap
+	_dd/fs=14;lh=1.5
+	@max-width=560px@p=18
+	@max-width=560px@_dl/gtc=1fr;g=6
+	@max-width=560px@_dt/ws=normal
+	@max-width=560px@_dd/mb=10
+	@dark@bg=#0f1015;c=#f1f1f4
+	@dark@_dt/c=#bcb5ff">
+	<h1 class="fs=26 fw=800 ls=-.03em">Grammar tour</h1>
+	<p class="mt=6 c=#565966 fs=14 lh=1.6 @dark@c=#c0c1ca">Each row is styled by the class on its left. Open the CSS tab to read what it compiled to.</p>
+
+	<dl>
+		<dt>w=160 h=10 br=999 bg=#7c6cff</dt>
+		<dd><span class="d=block w=160 h=10 br=999 bg=#7c6cff"></span></dd>
+
+		<dt>tab-size=~4</dt>
+		<dd><pre class="m=0 tab-size=~4 ff=ui-monospace,Menlo,Consolas,monospace fs=13">if (ok) {
+	return 4 // one tab, four columns wide
+}</pre></dd>
+
+		<dt>::before/ct='hero\\_bg.png?v\\=2'</dt>
+		<dd><span class="::before/ct='hero\\_bg.png?v\\=2';ff=ui-monospace,Menlo,Consolas,monospace;fs=13"></span> escaped _ and = stay literal</dd>
+
+		<dt>--accent=#59d499 c=--accent bd=2_solid_--accent</dt>
+		<dd><span class="--accent=#59d499 c=--accent bd=2_solid_--accent d=inline-block p=4_10 br=8 fw=700">var() is written for you</span></dd>
+
+		<dt>c=#7c6cff! c=red</dt>
+		<dd><span class="c=#7c6cff! c=red fw=700">! beats the later rule, so this is never red</span></dd>
+
+		<dt>>b/c=#d66c3c</dt>
+		<dd><span class=">b/c=#d66c3c">the <b>bold child</b> is styled from its parent</span></dd>
+
+		<dt>@sm@none · none @sm@d=inline</dt>
+		<dd><span class="@sm@none">the preview is narrower than 640px</span><span class="none @sm@d=inline">the preview is 640px or wider</span></dd>
+
+		<dt>@@supports_display=grid@c=#59d499</dt>
+		<dd><span class="@@supports_display=grid@c=#59d499 fw=700">a raw at-rule, and key=value becomes (display: grid)</span></dd>
+
+		<dt>@dark@c=#ffd166</dt>
+		<dd><span class="@dark@c=#ffd166 fw=700">gold in dark mode. Toggle the preview theme in the top bar.</span></dd>
+
+		<dt>flex ai=center g=8</dt>
+		<dd><span class="flex ai=center g=8 _i/w=14;h=14;br=4;bg=#7c6cff"><i></i><i></i><i></i>value shorthands need no = at all</span></dd>
+	</dl>
 </main>`
 })
 
 const STORAGE = Object.freeze({
 	source: "click-css-playground:source:v1",
 	splitHorizontal: "click-css-playground:split-horizontal:v1",
-	splitVertical: "click-css-playground:split-vertical:v1"
+	splitVertical: "click-css-playground:split-vertical:v1",
+	theme: "click-css-playground:theme:v1"
 })
+
+// "" follows the OS setting; the other two are what click-css reads from localStorage.THEME.
+const THEMES = Object.freeze([ "", "LIGHT", "DARK" ])
+const THEME_LABELS = Object.freeze({ "": "System", LIGHT: "Light", DARK: "Dark" })
+const RUNTIME_URL = new URL("./min.js", document.baseURI).href
+const RENDER_TIMEOUT = 5000
+const LOADER_DELAY = 300
 
 const stackedLayout = window.matchMedia("(max-width: 820px)")
 
@@ -89,7 +163,7 @@ const editor = document.querySelector("#editor")
 const lineNumbers = document.querySelector("#line-numbers")
 const cursorPosition = document.querySelector("#cursor-position")
 const exampleSelect = document.querySelector("#example-select")
-const previewRoot = document.querySelector("#preview-root")
+const previewFrames = [ ...document.querySelectorAll(".preview-frame") ]
 const previewLoader = document.querySelector("#preview-loader")
 const cssOutput = document.querySelector("#css-output")
 const cssSize = document.querySelector("#css-size")
@@ -99,15 +173,22 @@ const previewTab = document.querySelector("#preview-tab")
 const cssTab = document.querySelector("#css-tab")
 const status = document.querySelector("#live-status")
 const statusLabel = document.querySelector("#status-label")
+const themeButton = document.querySelector("#theme-button")
+const themeLabel = document.querySelector("#theme-label")
 const divider = document.querySelector("#divider")
 const workspace = document.querySelector("#workspace")
 const toast = document.querySelector("#toast")
 
 let activeExample = "profile"
 let renderTimer
+let renderTimeout
+let loaderTimer
 let toastTimer
+let renderId = 0
+let activeFrame = 0
 let isDragging = false
 let letTabLeaveEditor = false
+let previewTheme = ""
 let horizontalSplit = readNumber(STORAGE.splitHorizontal, 48)
 let verticalSplit = readNumber(STORAGE.splitVertical, 48)
 
@@ -137,6 +218,22 @@ function readNumber(key, fallback) {
 
 function clamp(value, minimum, maximum) {
 	return Math.min(maximum, Math.max(minimum, value))
+}
+
+function readTheme() {
+	const stored = readStorage(STORAGE.theme) ?? ""
+	return THEMES.includes(stored) ? stored : ""
+}
+
+function setTheme(theme) {
+	previewTheme = theme
+	writeStorage(STORAGE.theme, theme)
+	themeLabel.textContent = THEME_LABELS[theme]
+	themeButton.setAttribute("aria-label", `Preview color scheme: ${THEME_LABELS[theme]}`)
+	// SVG elements have no `hidden` IDL property, so toggle the attribute and style it ourselves.
+	for (const icon of themeButton.querySelectorAll("svg")) {
+		icon.toggleAttribute("hidden", icon.dataset.theme !== theme)
+	}
 }
 
 function getSharedSource() {
@@ -184,26 +281,62 @@ function updateCursorPosition() {
 	cursorPosition.textContent = `Ln ${lines.length}, Col ${lines.at(-1).length + 1}`
 }
 
-function createPreviewFragment(source) {
-	const template = document.createElement("template")
-	template.innerHTML = source
+// The preview runs in a sandboxed iframe with an opaque origin, so this is defence in depth:
+// scripts and handlers are removed mostly so a typo cannot lock up the tab.
+function sanitizeDocument(source) {
+	const doc = new DOMParser().parseFromString(source, "text/html")
 
-	for (const blocked of template.content.querySelectorAll(
-		"script, style, iframe, object, embed, base, meta, link"
-	)) blocked.remove()
+	for (const blocked of doc.querySelectorAll("script, iframe, object, embed, base, meta")) blocked.remove()
 
-	for (const element of template.content.querySelectorAll("*")) {
+	for (const element of doc.querySelectorAll("*")) {
 		for (const attribute of [ ...element.attributes ]) {
 			const name = attribute.name.toLowerCase()
-			const unsafeUrl = [ "href", "src", "xlink:href", "formaction" ].includes(name)
+			const unsafeUrl = [ "href", "src", "xlink:href", "formaction", "action" ].includes(name)
 				&& /^\s*(?:javascript|vbscript):/i.test(attribute.value)
-			if (name.startsWith("on") || name === "srcdoc" || name === "style" || unsafeUrl) {
+			if (name.startsWith("on") || name === "srcdoc" || unsafeUrl) {
 				element.removeAttribute(attribute.name)
 			}
 		}
 	}
 
-	return template.content
+	return doc
+}
+
+// A complete document for the preview frame: the user's markup with its own copy of
+// click-css in <head>, a localStorage shim carrying the chosen THEME (the sandbox has no
+// storage of its own), and a reporter that posts the compiled CSS back once the page loads.
+function buildPreviewDocument(source, theme, id) {
+	const doc = sanitizeDocument(source)
+
+	const shim = doc.createElement("script")
+	shim.textContent = `Object.defineProperty(window, "localStorage", { value: { length: 0, key: () => null, getItem: key => key === "THEME" ? ${JSON.stringify(theme || null)} : null, setItem() {}, removeItem() {}, clear() {} } })`
+
+	const runtime = doc.createElement("script")
+	runtime.setAttribute("src", RUNTIME_URL)
+
+	const reporter = doc.createElement("script")
+	reporter.textContent = `(() => {
+	const post = message => parent.postMessage(Object.assign({ id: ${id} }, message), "*")
+	let reset = ""
+	try {
+		click()
+		reset = document.querySelector("style[click]").textContent
+	} catch (error) {
+		addEventListener("load", () => post({ type: "click-css:error", message: String(error) }))
+		return
+	}
+	addEventListener("click", event => {
+		if (event.target instanceof Element && event.target.closest("a")) event.preventDefault()
+	})
+	addEventListener("submit", event => event.preventDefault())
+	addEventListener("load", () => setTimeout(() => {
+		const sheet = document.querySelector("style[click]")
+		post({ type: "click-css:css", css: sheet ? sheet.textContent.slice(reset.length) : "" })
+	}))
+})()`
+
+	doc.head.prepend(shim, runtime, reporter)
+	return "<!doctype html>" + doc.documentElement.outerHTML
 }
 
 function scheduleRender() {
@@ -212,25 +345,37 @@ function scheduleRender() {
 	renderTimer = window.setTimeout(render, 160)
 }
 
+// Two frames alternate: the standby frame loads the new document while the active one stays
+// visible, and they swap once the new document reports its CSS. No flash between edits.
 function render() {
 	window.clearTimeout(renderTimer)
-	previewLoader.classList.add("is-visible")
+	window.clearTimeout(renderTimeout)
+	window.clearTimeout(loaderTimer)
 	setStatus("Rendering…", "busy")
-	previewRoot.replaceChildren(createPreviewFragment(editor.value))
+	loaderTimer = window.setTimeout(() => previewLoader.classList.add("is-visible"), LOADER_DELAY)
 
-	window.setTimeout(() => {
-		const runtimeStyle = document.querySelector("style[click]")
-		if (!runtimeStyle) {
-			previewLoader.classList.remove("is-visible")
-			setStatus("Runtime error", "error")
-			showToast("Click CSS failed to load.", "error")
-			return
-		}
+	const id = ++renderId
+	previewFrames[1 - activeFrame].srcdoc = buildPreviewDocument(editor.value, previewTheme, id)
+	renderTimeout = window.setTimeout(() => failRender("The preview did not respond."), RENDER_TIMEOUT)
+}
 
-		updateGeneratedCss(runtimeStyle.textContent)
-		previewLoader.classList.remove("is-visible")
-		setStatus("Live")
-	})
+function finishRender(css) {
+	window.clearTimeout(renderTimeout)
+	window.clearTimeout(loaderTimer)
+	previewFrames[activeFrame].classList.add("is-standby")
+	activeFrame = 1 - activeFrame
+	previewFrames[activeFrame].classList.remove("is-standby")
+	updateGeneratedCss(css)
+	previewLoader.classList.remove("is-visible")
+	setStatus("Live")
+}
+
+function failRender(message) {
+	window.clearTimeout(renderTimeout)
+	window.clearTimeout(loaderTimer)
+	previewLoader.classList.remove("is-visible")
+	setStatus("Runtime error", "error")
+	showToast(message, "error")
 }
 
 function formatCss(css) {
@@ -365,7 +510,7 @@ function handleEditorKeydown(event) {
 
 	if (event.shiftKey) {
 		const lineStart = value.lastIndexOf("\n", start - 1) + 1
-		const removable = value.slice(lineStart, lineStart + 2).match(/^ {1,2}/)?.[0] ?? ""
+		const removable = value.slice(lineStart, lineStart + 2).match(/^(?:\t| {1,2})/)?.[0] ?? ""
 		if (!removable) return
 
 		event.preventDefault()
@@ -374,7 +519,7 @@ function handleEditorKeydown(event) {
 		editor.selectionEnd = Math.max(lineStart, end - removable.length)
 	} else {
 		event.preventDefault()
-		editor.setRangeText("  ", start, end, "end")
+		editor.setRangeText("\t", start, end, "end")
 	}
 
 	onEditorInput()
@@ -490,6 +635,15 @@ function handleDividerKeydown(event) {
 	setSplit(next)
 }
 
+window.addEventListener("message", event => {
+	const data = event.data
+	if (event.source !== previewFrames[1 - activeFrame].contentWindow) return
+	if (!data || typeof data !== "object" || data.id !== renderId) return
+
+	if (data.type === "click-css:css") finishRender(typeof data.css === "string" ? data.css : "")
+	else if (data.type === "click-css:error") failRender("Click CSS failed to load in the preview.")
+})
+
 editor.addEventListener("input", onEditorInput)
 editor.addEventListener("keydown", handleEditorKeydown)
 editor.addEventListener("keyup", updateCursorPosition)
@@ -501,6 +655,11 @@ exampleSelect.addEventListener("change", () => {
 	const key = exampleSelect.value
 	if (!(key in EXAMPLES)) return
 	setEditorSource(EXAMPLES[key], key)
+})
+
+themeButton.addEventListener("click", () => {
+	setTheme(THEMES[(THEMES.indexOf(previewTheme) + 1) % THEMES.length])
+	render()
 })
 
 document.querySelector("#reset-button").addEventListener("click", () => {
@@ -520,11 +679,6 @@ for (const tab of [ previewTab, cssTab ]) {
 		activateOutput(tab === previewTab ? "css" : "preview", true)
 	})
 }
-
-previewRoot.addEventListener("click", event => {
-	if (event.target instanceof Element && event.target.closest("a")) event.preventDefault()
-})
-previewRoot.addEventListener("submit", event => event.preventDefault())
 
 divider.addEventListener("pointerdown", event => {
 	isDragging = true
@@ -555,5 +709,6 @@ updateCursorPosition()
 setSplit(horizontalSplit, false)
 setSplit(verticalSplit, true)
 updateDividerOrientation()
+setTheme(readTheme())
 activateOutput("preview")
 render()
